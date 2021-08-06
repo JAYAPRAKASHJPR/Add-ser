@@ -15,10 +15,12 @@ export class AppComponent implements OnInit {
   constructor(public myservicee: MyServiceService) {}
 
   onclick() {
-    var   ids = this.myservicee.IncreaseCount();
-    this.data = { id: ids, name: this.Uname, Address: this.uadd };
+    if (this.Uname != '' && this.uadd != '') {
+      var ids = this.myservicee.IncreaseCount();
+      this.data = { id: ids, name: this.Uname, Address: this.uadd };
 
-    this.myservicee.onSave(this.data);
+      this.myservicee.onSave(this.data);
+    }
   }
   ngOnInit() {
     this.fullData = this.myservicee.user;
