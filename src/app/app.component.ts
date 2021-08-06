@@ -13,8 +13,10 @@ export class AppComponent implements OnInit {
   data: Object;
   public fullData;
   constructor(public myservicee: MyServiceService) {}
+
   onclick() {
-    this.data = { id: 1, name: this.Uname, Address: this.uadd };
+    var   ids = this.myservicee.IncreaseCount();
+    this.data = { id: ids, name: this.Uname, Address: this.uadd };
 
     this.myservicee.onSave(this.data);
   }
